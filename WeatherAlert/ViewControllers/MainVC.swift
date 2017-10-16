@@ -10,9 +10,11 @@ import UIKit
 import CoreLocation
 
 
-class MainVC: UIViewController, APIControllerPRotocol
+class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
 {
-
+  let locationManager = CLLocationManager()
+  var apiController: APIController!
+  
    override func viewDidLoad()
    {
     super.viewDidLoad()
@@ -33,6 +35,7 @@ class MainVC: UIViewController, APIControllerPRotocol
     let currentWeather = Weather(weatherDictionary: results)
   
   }
+  
   
   func loadCurrentLocation()
   {
@@ -60,4 +63,26 @@ class MainVC: UIViewController, APIControllerPRotocol
     }
   }
   
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+  {
+    locationManager.stopUpdatingLocation()
+    if let location = locations.last
+    {
+      apiController.searchDarkSky(coordinate: location.coordinate)
+    }
+  }
+  
+  
+  
+  
+  
 }
+
+
+
+
+
+
+
+
+
