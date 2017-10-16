@@ -11,16 +11,16 @@ import UIKit
 import CoreLocation
 
 
-protocol APIControllerPRotocol
+protocol APIControllerProtocol
 {
-  func didRecieve(_ results: [String: Any])
+  func didRecieveDarkSky(_ results: [String: Any])
 }
 
 class APIController
 {
-  var delegate: APIControllerPRotocol?
+  var delegate: APIControllerProtocol?
   
-  init(delegate: APIControllerPRotocol)
+  init(delegate: APIControllerProtocol)
   {
     self.delegate = delegate
   }
@@ -45,7 +45,7 @@ class APIController
           if let results = dictionary["currently"] as? [String: Any]
           {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.delegate?.didRecieve(results)
+            self.delegate?.didRecieveDarkSky(results)
           }
         }
       }

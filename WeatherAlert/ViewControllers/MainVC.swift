@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
+class MainVC: UIViewController, APIControllerProtocol, CLLocationManagerDelegate
 {
   @IBOutlet weak var backgroundImage: UIImageView!
   @IBOutlet weak var temperatureLabel: UILabel!
@@ -38,6 +38,7 @@ class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
     let currentWeather = Weather(weatherDictionary: results)
     let dispatchQueue = DispatchQueue.main
     dispatchQueue.async {
+      
       self.temperatureLabel.text = "\(currentWeather.temperature)℉"
     }
     
