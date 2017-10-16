@@ -12,6 +12,7 @@ import CoreLocation
 
 class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
 {
+  @IBOutlet weak var backgroundImage: UIImageView!
   @IBOutlet weak var temperatureLabel: UILabel!
   
   let locationManager = CLLocationManager()
@@ -76,6 +77,7 @@ class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
     if let location = locations.last
     {
       apiController.searchDarkSky(coordinate: location.coordinate)
+      apiController.getBackgroundPhoto()
     }
   }
   

@@ -39,6 +39,7 @@
                         <viewLayoutGuide key="safeArea" id="AnK-d8-SxA"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="x9F-hf-eYa" id="t95-Jj-CgE"/>
                         <outlet property="temperatureLabel" destination="gO8-xb-9IM" id="1YS-Rj-CKp"/>
                     </connections>
                 </viewController>
