@@ -13,7 +13,7 @@ import CoreLocation
 
 protocol APIControllerPRotocol
 {
-  func didRecieve(_results: [String: Any])
+  func didRecieve(_ results: [String: Any])
 }
 
 class APIController
@@ -55,34 +55,34 @@ class APIController
   }
   
   
-  func retrieveBackgroundImage()
-  {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    let url = URL (string: "https://maps.googleapis.com/maps/api/place/photo?photoreference=\(photoReference)&maxwidth=400&key=\(GoogleAPIKey)")
-    let session = URLSession.shared
-    
-    let task = session.dataTask(with: url, completionHandler: { data, responce, error -> Void in
-      
-      if let error = error
-      {
-        print(error.localizedDescription)
-      }
-      else
-      {
-        if let dictionary = self.parseJSON(data!)
-        {
-          if let results = Dictiona["photoReference"] as? [String: Any]
-          {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
-          }
-        }
-      }
-      
-    })
-  
-  }
-  
+//  func retrieveBackgroundImage()
+//  {
+//    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//    let url = URL (string: "https://maps.googleapis.com/maps/api/place/photo?photoreference=\(photoReference)&maxwidth=400&key=\(GoogleAPIKey)")
+//    let session = URLSession.shared
+//
+//    let task = session.dataTask(with: url, completionHandler: { data, responce, error -> Void in
+//
+//      if let error = error
+//      {
+//        print(error.localizedDescription)
+//      }
+//      else
+//      {
+//        if let dictionary = self.parseJSON(data!)
+//        {
+//          if let results = Dictiona["photoReference"] as? [String: Any]
+//          {
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//
+//          }
+//        }
+//      }
+//      
+//    })
+//
+//  }
+//
   
   func parseJSON(_ data: Data) -> [String: Any]?
   {
