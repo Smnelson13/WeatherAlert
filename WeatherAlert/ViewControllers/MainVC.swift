@@ -12,6 +12,8 @@ import CoreLocation
 
 class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
 {
+  @IBOutlet weak var temperatureLabel: UILabel!
+  
   let locationManager = CLLocationManager()
   var apiController: APIController!
   
@@ -20,7 +22,7 @@ class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
     super.viewDidLoad()
     apiController = APIController(delegate: self)
     
-
+    loadCurrentLocation()
     
   }
 
@@ -33,6 +35,11 @@ class MainVC: UIViewController, APIControllerPRotocol, CLLocationManagerDelegate
   func didRecieve(_ results: [String : Any])
   {
     let currentWeather = Weather(weatherDictionary: results)
+    let dispatchQueue = DispatchQueue.main
+    dispatchQueue.async {
+      self.temperatureLabel.text = "\(currentWeather.temperature)℉"
+    }
+    
   
   }
   
