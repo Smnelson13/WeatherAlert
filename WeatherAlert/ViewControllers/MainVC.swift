@@ -12,8 +12,14 @@ import CoreLocation
 
 class MainVC: UIViewController, APIControllerProtocol, CLLocationManagerDelegate
 {
-  @IBOutlet weak var backgroundImage: UIImageView!
-  @IBOutlet weak var temperatureLabel: UILabel!
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var mainImageView: UIImageView!
+  @IBOutlet weak var bottomLeftImageView: UIImageView!
+  @IBOutlet weak var topLeftImageView: UIImageView!
+  @IBOutlet weak var middleImageView: UIImageView!
+  @IBOutlet weak var topRightImageView: UIImageView!
+  @IBOutlet weak var bottomRightImageView: UIImageView!
   
   let locationManager = CLLocationManager()
   var apiController: APIController!
@@ -39,7 +45,7 @@ class MainVC: UIViewController, APIControllerProtocol, CLLocationManagerDelegate
     let dispatchQueue = DispatchQueue.main
     dispatchQueue.async {
       
-      self.temperatureLabel.text = "\(currentWeather.temperature)℉"
+     // self.temperatureLabel.text = "\(currentWeather.temperature)℉"
     }
     
   
