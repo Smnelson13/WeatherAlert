@@ -82,7 +82,10 @@ class MainVC: UIViewController, APIControllerProtocol, CLLocationManagerDelegate
     }
   }
   
-  
+  func didRecieveDarkSky(_ results: [String : Any])
+  {
+    // do something
+  }
   
   
   
