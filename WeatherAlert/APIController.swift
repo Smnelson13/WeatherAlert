@@ -11,92 +11,52 @@ import UIKit
 import CoreLocation
 
 
-protocol APIControllerProtocol
+protocol APIControllerDelegate: class
 {
-  func didRecieveDarkSky(_ results: [String: Any])
+  func apiController(didReceive darkSkyResults: [String: Any])
 }
 
 class APIController
 {
-  var delegate: APIControllerProtocol?
+  weak var delegate: APIControllerDelegate?
   
-  init(delegate: APIControllerProtocol)
+  init(delegate: APIControllerDelegate)
   {
     self.delegate = delegate
   }
   
-  func searchDarkSky(coordinate: CLLocationCoordinate2D)
-  {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    let url = URL(string: "https://api.darksky.net/forecast/\(darkSkyAPIKey)/\(coordinate.latitude),\(coordinate.longitude)")!
-    let session = URLSession.shared
-    
-    let task = session.dataTask(with: url, completionHandler: { data, response, error -> Void in
-      
-      print("Task completed")
-      if let error = error
-      {
-        print(error.localizedDescription)
+  func searchDarkSky(for coordinate: CLLocationCoordinate2D) {
+    let url = "https://api.darksky.net/forecast/\(darkSkyAPIKey)/\(coordinate.latitude),\(coordinate.longitude)"
+    request(url) { json, error in
+      if let json = json,
+        let currently = json["currently"] as? [String: Any],
+        let hourly = json["hourly"] as? [String: Any] {
+        self.delegate?.apiController(didReceive: json)
+      } else if let error = error {
+        // handle error
       }
-      else
-      {
-        if let dictionary = self.parseJSON(data!)
-        {
-          if let results = dictionary["currently"] as? [String: Any]
-          {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            self.delegate?.didRecieveDarkSky(results)
-          }
-        }
-      }
-    })
-    
-    task.resume()
-  }
-
-  func getBackgroundPhoto()
-  {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    
-    let searchURL = URL(string: "https://maps.googleapis.com/maps/api/place/photo?photoreference=\(photoReference)&maxwidth=400&key=\(GoogleAPIKey)")!
-    let session = URLSession.shared
-    
-    let task = session.dataTask(with: searchURL, completionHandler: { data, response, error -> Void in
-      
-      if let error = error
-      {
-        print(error.localizedDescription)
-      }
-      else
-      {
-        if let dictionary = self.parseJSON(data!)
-        {
-          if let results = dictionary["photoReference"] as? [String: Any]
-          {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            
-          }
-        }
-      }
-    })
-    
+    }
   }
   
-
+  func request(_ url: String, _ completion: @escaping ([String: Any]?, Error?) -> Void) {
+    guard let url = URL(string: url) else { return }
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      UIApplication.shared.isNetworkActivityIndicatorVisible = false
+      if let data = data, let json = self.parseJSON(data) {
+        completion(json, nil)
+      } else if let error = error {
+        completion(nil, error)
+      }
+    }
+  }
   
   func parseJSON(_ data: Data) -> [String: Any]?
   {
     do
     {
-      let json = try JSONSerialization.jsonObject(with: data, options: [])
-      if let dictionary = json as? [String: Any]
-      {
-        return dictionary
-      }
-      else
-      {
-        return nil
-      }
+      return try JSONSerialization
+        .jsonObject(with: data, options: []) as? [String: Any]
     }
     catch
     {
@@ -104,6 +64,59 @@ class APIController
       return nil
     }
   }
+  
+  
+  
+//  func searchDarkSky(coordinate: CLLocationCoordinate2D)
+//  {
+//    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+//    let url = URL(string: "https://api.darksky.net/forecast/\(darkSkyAPIKey)/\(coordinate.latitude),\(coordinate.longitude)")!
+//    let session = URLSession.shared
+//
+//    let task = session.dataTask(with: url, completionHandler: { data, response, error -> Void in
+//
+//      print("Task completed")
+//      if let error = error
+//      {
+//        print(error.localizedDescription)
+//      }
+//      else
+//      {
+//        if let dictionary = self.parseJSON(data!)
+//        {
+//          if let results = dictionary["currently"] as? [String: Any]
+//          {
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            self.delegate?.didRecieveDarkSky(results)
+//          }
+//        }
+//      }
+//    })
+//
+//    task.resume()
+//  }
+  
+  
+//  func parseJSON(_ data: Data) -> [String: Any]?
+//  {
+//    do
+//    {
+//      let json = try JSONSerialization.jsonObject(with: data, options: [])
+//      if let dictionary = json as? [String: Any]
+//      {
+//        return dictionary
+//      }
+//      else
+//      {
+//        return nil
+//      }
+//    }
+//    catch
+//    {
+//      print(error)
+//      return nil
+//    }
+//  }
   
   
   

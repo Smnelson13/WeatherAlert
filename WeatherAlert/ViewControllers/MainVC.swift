@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 
-class MainVC: UIViewController, APIControllerProtocol, CLLocationManagerDelegate
+class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
@@ -42,6 +42,7 @@ class MainVC: UIViewController, APIControllerProtocol, CLLocationManagerDelegate
   func didRecieve(_ results: [String : Any])
   {
     let currentWeather = Weather(weatherDictionary: results)
+    let hourlyWeather = Weather(weatherDictionary: results)
     let dispatchQueue = DispatchQueue.main
     dispatchQueue.async {
       
@@ -84,15 +85,11 @@ class MainVC: UIViewController, APIControllerProtocol, CLLocationManagerDelegate
     if let location = locations.last
     {
       apiController.searchDarkSky(coordinate: location.coordinate)
-      apiController.getBackgroundPhoto()
     }
   }
   
-  func didRecieveDarkSky(_ results: [String : Any])
-  {
-    // do something
-  }
-  
+ 
+ 
   
   
 }
