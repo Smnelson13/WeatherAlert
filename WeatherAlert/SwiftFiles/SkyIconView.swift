@@ -165,7 +165,7 @@ class SKYIconView: UIView
     self._timer = nil
   }
   
-  func update(_ timer:Timer)
+  @objc func update(_ timer:Timer)
   {
     self.refresh()
   }

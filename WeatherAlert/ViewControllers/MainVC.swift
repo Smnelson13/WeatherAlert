@@ -12,8 +12,15 @@ import CoreLocation
 
 class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 {
+  func apiController(didReceive darkSkyResults: [String : Any])
+  {
+    
+  }
+  @IBOutlet weak var currentTemperatureLabel: UILabel!
+  
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
+  
   @IBOutlet weak var mainImageView: UIImageView!
   @IBOutlet weak var bottomLeftImageView: UIImageView!
   @IBOutlet weak var topLeftImageView: UIImageView!
@@ -46,6 +53,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     let dispatchQueue = DispatchQueue.main
     dispatchQueue.async {
       
+      self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
      // self.temperatureLabel.text = "\(currentWeather.temperature)℉"
     }
     
@@ -84,7 +92,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     locationManager.stopUpdatingLocation()
     if let location = locations.last
     {
-      apiController.searchDarkSky(coordinate: location.coordinate)
+      apiController.searchDarkSky(for: location.coordinate)
     }
   }
   
