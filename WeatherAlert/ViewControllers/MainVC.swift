@@ -12,19 +12,23 @@ import CoreLocation
 
 class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 {
-  func apiController(didReceive darkSkyResults: [String : Any])
-  {
-    let currentWeather = Weather(weatherDictionary: darkSkyResults)
-    
-    self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
-    self.dateLabel.text = "\(currentWeather.time)"
-  }
+  
+  //how to handle the multiple call function
+//  func apiController(didReceive darkSkyResults: [String : Any])
+//  {
+//    let currentWeather = Weather(weatherDictionary: darkSkyResults)
+//
+//    self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
+//    self.dateLabel.text = "\(currentWeather.time)"
+//  }
+  
+  
   @IBOutlet weak var currentTemperatureLabel: UILabel!
   
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   
-  @IBOutlet weak var mainImageView: UIImageView!
+  @IBOutlet weak var mainImageView: SKYIconView!
   @IBOutlet weak var bottomLeftImageView: UIImageView!
   @IBOutlet weak var topLeftImageView: UIImageView!
   @IBOutlet weak var middleImageView: UIImageView!
@@ -48,20 +52,22 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
       super.didReceiveMemoryWarning()
     
   }
-//
-//  func didRecieve(_ results: [String : Any])
-//  {
-//    let currentWeather = Weather(weatherDictionary: results)
-//    let hourlyWeather = Weather(weatherDictionary: results)
-//    let dispatchQueue = DispatchQueue.main
-//    dispatchQueue.async {
-//
-//      self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
-//     // self.temperatureLabel.text = "\(currentWeather.temperature)℉"
-//    }
-//
-//
-//  }
+
+  // the way to process single calls.
+  func didRecieve(_ results: [String : Any])
+  {
+    let currentWeather = Weather(weatherDictionary: results)
+    let hourlyWeather = Weather(weatherDictionary: results)
+    let dispatchQueue = DispatchQueue.main
+    dispatchQueue.async {
+
+      self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
+      //self.mainImageView.setType = Skycons(rawValue: currentWeather.icon)!
+      self.mainImageView.setType = Skycons(rawValue: currentWeather.icon)!
+    }
+
+
+  }
 
   
   func loadCurrentLocation()
@@ -95,7 +101,8 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     locationManager.stopUpdatingLocation()
     if let location = locations.last
     {
-      apiController.searchDarkSky(for: location.coordinate)
+    //  apiController.searchDarkSky(for: location.coordinate)
+      apiController.searchDarkSky(coordinate: location.coordinate)
     }
   }
   
