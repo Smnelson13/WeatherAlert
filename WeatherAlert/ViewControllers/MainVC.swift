@@ -29,11 +29,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
   @IBOutlet weak var locationLabel: UILabel!
   
   @IBOutlet weak var mainImageView: SKYIconView!
-  @IBOutlet weak var bottomLeftImageView: UIImageView!
-  @IBOutlet weak var topLeftImageView: UIImageView!
-  @IBOutlet weak var middleImageView: UIImageView!
-  @IBOutlet weak var topRightImageView: UIImageView!
-  @IBOutlet weak var bottomRightImageView: UIImageView!
+  
   
   let locationManager = CLLocationManager()
   var apiController: APIController!
