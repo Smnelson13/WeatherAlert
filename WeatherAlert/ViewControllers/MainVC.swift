@@ -38,7 +38,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
    {
     super.viewDidLoad()
     apiController = APIController(delegate: self)
-    
+    mainImageView.setColor = UIColor.white
     loadCurrentLocation()
     
   }
