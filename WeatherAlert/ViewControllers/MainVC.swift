@@ -14,7 +14,10 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 {
   func apiController(didReceive darkSkyResults: [String : Any])
   {
+    let currentWeather = Weather(weatherDictionary: darkSkyResults)
     
+    self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
+    self.dateLabel.text = "\(currentWeather.time)"
   }
   @IBOutlet weak var currentTemperatureLabel: UILabel!
   
@@ -45,21 +48,21 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
       super.didReceiveMemoryWarning()
     
   }
-  
-  func didRecieve(_ results: [String : Any])
-  {
-    let currentWeather = Weather(weatherDictionary: results)
-    let hourlyWeather = Weather(weatherDictionary: results)
-    let dispatchQueue = DispatchQueue.main
-    dispatchQueue.async {
-      
-      self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
-     // self.temperatureLabel.text = "\(currentWeather.temperature)℉"
-    }
-    
-  
-  }
-  
+//
+//  func didRecieve(_ results: [String : Any])
+//  {
+//    let currentWeather = Weather(weatherDictionary: results)
+//    let hourlyWeather = Weather(weatherDictionary: results)
+//    let dispatchQueue = DispatchQueue.main
+//    dispatchQueue.async {
+//
+//      self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
+//     // self.temperatureLabel.text = "\(currentWeather.temperature)℉"
+//    }
+//
+//
+//  }
+
   
   func loadCurrentLocation()
   {
