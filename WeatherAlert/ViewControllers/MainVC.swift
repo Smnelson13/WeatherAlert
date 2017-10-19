@@ -33,7 +33,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .present
         transition.startingPoint = infoButton.center
-        transition.circleColor = infoButton.backgroundColor!
+        //transition.circleColor = infoButton.backgroundColor!
         
         return transition
     }
