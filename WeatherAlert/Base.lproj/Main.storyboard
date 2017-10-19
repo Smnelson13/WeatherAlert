@@ -178,6 +178,7 @@
                     <connections>
                         <outlet property="currentTemperatureLabel" destination="5vg-rQ-rRW" id="UMe-bN-rAE"/>
                         <outlet property="dateLabel" destination="rin-MY-6Gh" id="ZZP-K2-COe"/>
+                        <outlet property="infoButton" destination="88d-t1-sZM" id="cPy-I5-4hj"/>
                         <outlet property="locationLabel" destination="Pol-PU-Eex" id="JfH-KU-IAR"/>
                         <outlet property="mainImageView" destination="5lv-Fu-ypX" id="F2n-1U-B6G"/>
                     </connections>

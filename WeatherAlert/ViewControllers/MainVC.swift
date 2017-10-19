@@ -10,8 +10,9 @@ import UIKit
 import CoreLocation
 
 
-class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
+class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate, UIViewControllerTransitioningDelegate
 {
+    let transition = CircularTransition()
   
   //how to handle the multiple call function
 //  func apiController(didReceive darkSkyResults: [String : Any])
@@ -22,7 +23,8 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 //    self.dateLabel.text = "\(currentWeather.time)"
 //  }
   
-  
+    @IBOutlet weak var infoButton: UIButton!
+    
   @IBOutlet weak var currentTemperatureLabel: UILabel!
   
   @IBOutlet weak var dateLabel: UILabel!
@@ -33,7 +35,30 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
   
   let locationManager = CLLocationManager()
   var apiController: APIController!
-  
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let secondVC = segue.destination as! InformationViewController
+        secondVC.transitioningDelegate = self
+        secondVC.modalPresentationStyle = .custom
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = infoButton.center
+        transition.circleColor = infoButton.backgroundColor!
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = infoButton.center
+        transition.circleColor = infoButton.backgroundColor!
+        
+        return transition
+    }
+    
    override func viewDidLoad()
    {
     super.viewDidLoad()

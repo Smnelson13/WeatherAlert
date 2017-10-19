@@ -27,11 +27,17 @@ class CitiesViewController: UIViewController
     
   @IBAction func searchButtonTapped(_ sender: Any)
   {
-    
+    //https://developers.google.com/places/ios-api/autocomplete
     //UINavigationBar.appearance().setTextColor(UIColor.black)
     let autocompleteController = GMSAutocompleteViewController()
     autocompleteController.delegate = self
     UINavigationBar.appearance().barTintColor = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
+    UINavigationBar.appearance().tintColor = UIColor.white
+    //UISearchBar.appearance().backgroundColor = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
+    //UISearchBar.appearance().setPlaceholderTextColor(.white)
+    //UISearchBar.appearance().setSearchImageColor(.white)
+    //UISearchBar.appearance().setTextColor(UIColor.white)
+    UISearchBar.appearance().barStyle = UIBarStyle.default
     present(autocompleteController, animated: true, completion: nil)
     let filter = GMSAutocompleteFilter()
     filter.type = GMSPlacesAutocompleteTypeFilter.city
