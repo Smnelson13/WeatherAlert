@@ -12,35 +12,22 @@ import CoreLocation
 
 class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate, UIViewControllerTransitioningDelegate
 {
-    let transition = CircularTransition()
-  
-  //how to handle the multiple call function
-//  func apiController(didReceive darkSkyResults: [String : Any])
-//  {
-//    let currentWeather = Weather(weatherDictionary: darkSkyResults)
-//
-//    self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
-//    self.dateLabel.text = "\(currentWeather.time)"
-//  }
-  
     @IBOutlet weak var infoButton: UIButton!
-    
-  @IBOutlet weak var currentTemperatureLabel: UILabel!
+    @IBOutlet weak var currentTemperatureLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var mainImageView: SKYIconView!
   
-  @IBOutlet weak var dateLabel: UILabel!
-  @IBOutlet weak var locationLabel: UILabel!
-  
-  @IBOutlet weak var mainImageView: SKYIconView!
-  
+    let transition = CircularTransition()
   
   let locationManager = CLLocationManager()
   var apiController: APIController!
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let secondVC = segue.destination as! InformationViewController
-        secondVC.transitioningDelegate = self
-        secondVC.modalPresentationStyle = .custom
+        let infoVC = segue.destination as! InformationViewController
+        infoVC.transitioningDelegate = self
+        infoVC.modalPresentationStyle = .custom
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -127,14 +114,19 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     }
   }
   
- 
- 
-  
   
 }
 
 
 
+//how to handle the multiple call function
+//  func apiController(didReceive darkSkyResults: [String : Any])
+//  {
+//    let currentWeather = Weather(weatherDictionary: darkSkyResults)
+//
+//    self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
+//    self.dateLabel.text = "\(currentWeather.time)"
+//  }
 
 
 
