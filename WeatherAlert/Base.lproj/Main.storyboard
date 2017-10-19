@@ -9,6 +9,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GillSans.ttc">
+            <string>GillSans</string>
+            <string>GillSans-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--MainVC-->
         <scene sceneID="9Zd-Nq-ayh">
@@ -22,21 +28,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charlotte, NC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pol-PU-Eex">
-                                <rect key="frame" x="127.66666666666667" y="60" width="158.66666666666663" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="127.66666666666667" y="59.333333333333343" width="158.66666666666663" height="23"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue, Oct 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rin-MY-6Gh">
-                                <rect key="frame" x="147" y="40" width="120" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="147" y="40" width="120" height="17.333333333333329"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vg-rQ-rRW">
-                                <rect key="frame" x="150" y="445" width="114" height="39.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="150" y="445" width="114" height="48"/>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lv-Fu-ypX" customClass="SKYIconView" customModule="WeatherAlert" customModuleProvider="target">
@@ -85,43 +91,47 @@
                                     <constraint firstAttribute="height" constant="75" id="c4K-a3-Fr2"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91i-3S-d5t">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88d-t1-sZM">
+                                <rect key="frame" x="28" y="696" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="88d-t1-sZM" secondAttribute="height" multiplier="1:1" id="1xG-vJ-XsC"/>
+                                    <constraint firstAttribute="width" constant="20" id="bCk-Cl-NW4"/>
+                                </constraints>
+                                <state key="normal" image="InfoIcon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChT-nk-JBn">
                                 <rect key="frame" x="369" y="691" width="25" height="25"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Bvq-9g-o9C"/>
-                                    <constraint firstAttribute="width" secondItem="91i-3S-d5t" secondAttribute="height" multiplier="1:1" id="hFd-I2-CcQ"/>
+                                    <constraint firstAttribute="width" secondItem="ChT-nk-JBn" secondAttribute="height" multiplier="1:1" id="DNd-Hc-CUS"/>
+                                    <constraint firstAttribute="height" constant="25" id="buH-lF-s0U"/>
                                 </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zMf-Ry-aDj">
-                                <rect key="frame" x="20" y="691" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="HMD-so-eiB"/>
-                                    <constraint firstAttribute="width" secondItem="zMf-Ry-aDj" secondAttribute="height" multiplier="1:1" id="MZo-6U-pAd"/>
-                                </constraints>
-                            </imageView>
+                                <state key="normal" image="IconList"/>
+                                <connections>
+                                    <segue destination="C5d-d4-XSq" kind="show" id="Hv6-iG-M2y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5lv-Fu-ypX" firstAttribute="centerX" secondItem="0DP-tq-XYJ" secondAttribute="centerX" id="1R2-HC-crG"/>
                             <constraint firstItem="qt0-QI-UO5" firstAttribute="bottom" secondItem="AnK-d8-SxA" secondAttribute="bottom" id="2CP-xz-aZw"/>
                             <constraint firstItem="AnK-d8-SxA" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="rin-MY-6Gh" secondAttribute="trailing" constant="147.5" id="3EY-cq-2E8"/>
-                            <constraint firstItem="AnK-d8-SxA" firstAttribute="bottom" secondItem="zMf-Ry-aDj" secondAttribute="bottom" constant="20" id="BFf-Wv-zS1"/>
+                            <constraint firstItem="AnK-d8-SxA" firstAttribute="bottom" secondItem="ChT-nk-JBn" secondAttribute="bottom" constant="20" id="5em-fF-fTS"/>
                             <constraint firstItem="rin-MY-6Gh" firstAttribute="top" secondItem="AnK-d8-SxA" secondAttribute="top" constant="20" id="BRb-Sa-TNn"/>
                             <constraint firstItem="5lv-Fu-ypX" firstAttribute="top" secondItem="b7J-ws-MzM" secondAttribute="bottom" constant="50" id="BlA-Fi-r6w"/>
                             <constraint firstItem="AnK-d8-SxA" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Pol-PU-Eex" secondAttribute="trailing" constant="127.67" id="DGL-PA-3Sk"/>
+                            <constraint firstItem="88d-t1-sZM" firstAttribute="leading" secondItem="AnK-d8-SxA" secondAttribute="leading" constant="28" id="DIy-Tr-Hms"/>
                             <constraint firstItem="sKu-sf-BRt" firstAttribute="leading" secondItem="b7J-ws-MzM" secondAttribute="trailing" constant="27" id="ElG-jw-ItE"/>
                             <constraint firstItem="Ch7-jW-FJT" firstAttribute="top" secondItem="5lv-Fu-ypX" secondAttribute="top" id="Ezz-Xf-mEH"/>
                             <constraint firstItem="Pol-PU-Eex" firstAttribute="top" secondItem="rin-MY-6Gh" secondAttribute="bottom" constant="2" id="GLW-kb-4gB"/>
+                            <constraint firstItem="AnK-d8-SxA" firstAttribute="bottom" secondItem="88d-t1-sZM" secondAttribute="bottom" constant="20" id="GuM-xt-m9x"/>
                             <constraint firstItem="b7J-ws-MzM" firstAttribute="centerX" secondItem="0DP-tq-XYJ" secondAttribute="centerX" id="Gye-YZ-AKp"/>
                             <constraint firstItem="AnK-d8-SxA" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5vg-rQ-rRW" secondAttribute="trailing" constant="150" id="Jdn-6E-tYO"/>
                             <constraint firstItem="5lv-Fu-ypX" firstAttribute="leading" secondItem="Ch7-jW-FJT" secondAttribute="trailing" constant="20" id="NIW-Gq-Gg0"/>
-                            <constraint firstItem="zMf-Ry-aDj" firstAttribute="leading" secondItem="AnK-d8-SxA" secondAttribute="leading" constant="20" id="NOk-cR-M6z"/>
                             <constraint firstItem="5lv-Fu-ypX" firstAttribute="centerY" secondItem="0DP-tq-XYJ" secondAttribute="centerY" id="Owa-Zk-wQn"/>
                             <constraint firstItem="qt0-QI-UO5" firstAttribute="trailing" secondItem="AnK-d8-SxA" secondAttribute="trailing" id="P5K-3f-SmY"/>
                             <constraint firstItem="Pol-PU-Eex" firstAttribute="centerX" secondItem="0DP-tq-XYJ" secondAttribute="centerX" id="RGz-KW-0x3"/>
                             <constraint firstItem="rin-MY-6Gh" firstAttribute="leading" relation="lessThanOrEqual" secondItem="AnK-d8-SxA" secondAttribute="leading" constant="147" id="SKu-vg-5gf"/>
-                            <constraint firstItem="AnK-d8-SxA" firstAttribute="trailing" secondItem="91i-3S-d5t" secondAttribute="trailing" constant="20" id="SXK-xw-MjQ"/>
                             <constraint firstItem="b7J-ws-MzM" firstAttribute="leading" secondItem="tED-I2-HLz" secondAttribute="trailing" constant="20" id="Uwj-v6-hEh"/>
                             <constraint firstItem="5vg-rQ-rRW" firstAttribute="leading" relation="lessThanOrEqual" secondItem="AnK-d8-SxA" secondAttribute="leading" constant="150" id="XDy-l9-dTI"/>
                             <constraint firstItem="LEP-GQ-6qW" firstAttribute="top" secondItem="sKu-sf-BRt" secondAttribute="bottom" constant="20" id="Yhm-H5-bfq"/>
@@ -130,8 +140,8 @@
                             <constraint firstItem="5vg-rQ-rRW" firstAttribute="centerX" secondItem="0DP-tq-XYJ" secondAttribute="centerX" id="djG-V1-u8V"/>
                             <constraint firstItem="5vg-rQ-rRW" firstAttribute="top" secondItem="5lv-Fu-ypX" secondAttribute="bottom" constant="2" id="e8R-R6-Ts2"/>
                             <constraint firstItem="5lv-Fu-ypX" firstAttribute="top" secondItem="LEP-GQ-6qW" secondAttribute="top" id="fBp-hZ-Y9M"/>
+                            <constraint firstItem="AnK-d8-SxA" firstAttribute="trailing" secondItem="ChT-nk-JBn" secondAttribute="trailing" constant="20" id="igU-BC-ZX9"/>
                             <constraint firstItem="sKu-sf-BRt" firstAttribute="width" secondItem="sKu-sf-BRt" secondAttribute="height" multiplier="1:1" id="jPv-8D-YTD"/>
-                            <constraint firstItem="AnK-d8-SxA" firstAttribute="bottom" secondItem="91i-3S-d5t" secondAttribute="bottom" constant="20" id="lKl-tD-yih"/>
                             <constraint firstItem="qt0-QI-UO5" firstAttribute="leading" secondItem="AnK-d8-SxA" secondAttribute="leading" id="neu-jL-1Zh"/>
                             <constraint firstItem="LEP-GQ-6qW" firstAttribute="leading" secondItem="5lv-Fu-ypX" secondAttribute="trailing" constant="20" id="qpZ-ek-iCZ"/>
                             <constraint firstItem="tED-I2-HLz" firstAttribute="width" secondItem="tED-I2-HLz" secondAttribute="height" multiplier="1:1" id="r9q-Pj-SzI"/>
@@ -151,9 +161,55 @@
             </objects>
             <point key="canvasLocation" x="-172.46376811594203" y="-73.369565217391312"/>
         </scene>
+        <!--Cities View Controller-->
+        <scene sceneID="prm-RF-0ZH">
+            <objects>
+                <viewController id="mfk-3m-0ri" customClass="CitiesViewController" customModule="WeatherAlert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qlf-jn-iYu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dxt-r6-bvF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZkZ-ma-0JV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Yrb-BN-gk3">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="mfk-3m-0ri" id="WPC-lq-mmY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="F1t-5A-QP3">
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="mfk-3m-0ri" id="yQb-0X-6eR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0G-5L-Gqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1190" y="-73"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="53X-xc-eWV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C5d-d4-XSq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yKW-ez-c5Z">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mfk-3m-0ri" kind="relationship" relationship="rootViewController" id="fZ8-d2-PiU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JdA-wJ-9Wy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="-73"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BackgroundDay" width="750" height="1334"/>
-        <image name="SearchIcon" width="33" height="33"/>
+        <image name="IconList" width="33" height="33"/>
+        <image name="InfoIcon" width="33" height="33"/>
     </resources>
 </document>
