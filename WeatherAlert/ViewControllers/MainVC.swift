@@ -90,9 +90,14 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     
     func didRecieveForecast(_ results: [String : Any])
     {
-        let forcastWeather = Weather(weatherdictionary: results)
+        let dispatchQueue = DispatchQueue.main
+        dispatchQueue.async {
+
+            let forcastWeather = ForecastWeather(forecastDictionary: results)
+            self.bottomLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
+
+        }
         
-        self.bottomLeftImage.setType = Skycons(rawValue: )
     }
 
   

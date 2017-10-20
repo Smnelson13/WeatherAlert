@@ -13,23 +13,23 @@ class ForecastWeather
 {
     
     
-    let temperature: Double
-    let humidity: Double
-    let apparentTemperature: Double
+ //   let temperature: Double
+//    let humidity: Double
+//    let apparentTemperature: Double
     let icon: String
-    let summary: String
-    let windSpeed: Double
-    let visibility: Double
+//    let summary: String
+//    let windSpeed: Double
+//    let visibility: Double
     
-    init(weatherDictionary: [String: Any])
+    init(forecastDictionary: [String: Any])
     {
-        temperature = weatherDictionary["temperature"] as! Double
-        humidity = weatherDictionary["humidity"] as! Double
-        apparentTemperature = weatherDictionary["apparentTemperature"] as! Double
-        icon = weatherDictionary["icon"] as! String
-        summary = weatherDictionary["summary"] as! String
-        windSpeed = weatherDictionary["windSpeed"] as! Double
-        visibility = weatherDictionary["visibility"] as! Double
+   //     temperature = forecastDictionary["temperature"] as! Double
+  //      humidity = forecastDictionary["humidity"] as! Double
+  //      apparentTemperature = forecastDictionary["apparentTemperature"] as! Double
+        icon = forecastDictionary["icon"] as! String
+ //       summary = forecastDictionary["summary"] as! String
+ //       windSpeed = forecastDictionary["windSpeed"] as! Double
+ //       visibility = forecastDictionary["visibility"] as! Double
     }
     
    
