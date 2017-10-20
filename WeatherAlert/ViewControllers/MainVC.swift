@@ -58,22 +58,19 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
    override func viewDidLoad()
    {
     super.viewDidLoad()
-   // var images: SKYIconView = [mainImageView, bottomRightImage, bottomLeftImage, topRightImage, topLeftImage, middleImage]
-    //images.setColor = UIColor.white
+    let images: [SKYIconView] = [mainImageView, bottomRightImage, bottomLeftImage, topRightImage, topLeftImage, middleImage]
+    for image in images { image.setColor = .white }
+    
     infoButton.layer.cornerRadius = 15
     apiController = APIController(delegate: self)
-    mainImageView.setColor = UIColor.white
-    bottomRightImage.setColor = UIColor.white
-    bottomLeftImage.setColor = UIColor.white
-    topRightImage.setColor = UIColor.white
-    topLeftImage.setColor = UIColor.white
-    middleImage.setColor = UIColor.white
+    
+    
+    
+    
+    
+    
     loadCurrentLocation()
     
-//    for i in images as SKYIconView {
-//        images.setColor = UIColor.white
-//    }
-//
   }
     
     override func viewDidAppear(_ animated: Bool)
