@@ -18,11 +18,15 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mainImageView: SKYIconView!
     @IBOutlet weak var bottomLeftImage: SKYIconView!
+    @IBOutlet weak var topLeftImage: SKYIconView!
+    @IBOutlet weak var middleImage: SKYIconView!
+    @IBOutlet weak var topRightImage: SKYIconView!
+    @IBOutlet weak var bottomRightImage: SKYIconView!
     
     let transition = CircularTransition()
   
-  let locationManager = CLLocationManager()
-  var apiController: APIController!
+    let locationManager = CLLocationManager()
+    var apiController: APIController!
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
@@ -54,11 +58,22 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
    override func viewDidLoad()
    {
     super.viewDidLoad()
+   // var images: SKYIconView = [mainImageView, bottomRightImage, bottomLeftImage, topRightImage, topLeftImage, middleImage]
+    //images.setColor = UIColor.white
     infoButton.layer.cornerRadius = 15
     apiController = APIController(delegate: self)
     mainImageView.setColor = UIColor.white
+    bottomRightImage.setColor = UIColor.white
+    bottomLeftImage.setColor = UIColor.white
+    topRightImage.setColor = UIColor.white
+    topLeftImage.setColor = UIColor.white
+    middleImage.setColor = UIColor.white
     loadCurrentLocation()
     
+//    for i in images as SKYIconView {
+//        images.setColor = UIColor.white
+//    }
+//
   }
     
     override func viewDidAppear(_ animated: Bool)
@@ -95,6 +110,10 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 
             let forcastWeather = ForecastWeather(forecastDictionary: results)
             self.bottomLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
+            self.topLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
+            self.middleImage.setType = Skycons(rawValue: forcastWeather.icon)!
+            self.topRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
+            self.bottomRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
 
         }
         
