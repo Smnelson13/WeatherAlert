@@ -10,10 +10,17 @@ import UIKit
 
 class InformationViewController: UIViewController
 {
-
+    @IBOutlet weak var doneButton: UIButton!
+    @IBAction func doneButtonTapped(_ sender: Any)
+    {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        doneButton.layer.cornerRadius = 10
+        
 
         // Do any additional setup after loading the view.
     }
@@ -24,11 +31,7 @@ class InformationViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func doneButtonTapped(_ sender: Any)
-    {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+   
     /*
     // MARK: - Navigation
 

@@ -25,15 +25,19 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let infoVC = segue.destination as! InformationViewController
-        infoVC.transitioningDelegate = self
-        infoVC.modalPresentationStyle = .custom
+        if (segue.identifier == "infoVC")
+        {
+            let infoVC = segue.destination as! InformationViewController
+            infoVC.transitioningDelegate = self
+            infoVC.modalPresentationStyle = .custom
+        }
+       
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionMode = .present
         transition.startingPoint = infoButton.center
-        //transition.circleColor = infoButton.backgroundColor!
+        transition.circleColor = infoButton.backgroundColor!
         
         return transition
     }
@@ -49,11 +53,17 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
    override func viewDidLoad()
    {
     super.viewDidLoad()
+    infoButton.layer.cornerRadius = 15
     apiController = APIController(delegate: self)
     mainImageView.setColor = UIColor.white
     loadCurrentLocation()
     
   }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        // refresh weather data
+    }
 
   override func didReceiveMemoryWarning()
   {
