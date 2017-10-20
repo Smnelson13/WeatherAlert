@@ -85,14 +85,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lv-Fu-ypX" customClass="SKYIconView" customModule="WeatherAlert" customModuleProvider="target">
-                                <rect key="frame" x="132" y="293" width="150" height="150"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="5lv-Fu-ypX" secondAttribute="height" multiplier="1:1" id="Bgf-lh-HNz"/>
-                                    <constraint firstAttribute="height" constant="150" id="R7o-tc-LY2"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ch7-jW-FJT">
                                 <rect key="frame" x="37" y="293.66666666666669" width="75" height="75"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,7 +131,7 @@
                                 </constraints>
                                 <state key="normal" image="IconList"/>
                                 <connections>
-                                    <segue destination="NZS-G1-iZO" kind="show" id="gsj-rX-RXw"/>
+                                    <segue destination="NZS-G1-iZO" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="gsj-rX-RXw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88d-t1-sZM">
@@ -154,6 +146,14 @@
                                     <segue destination="tod-sG-re7" kind="show" identifier="infoVC" id="bmb-Uv-wC1"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lv-Fu-ypX" customClass="SKYIconView" customModule="WeatherAlert" customModuleProvider="target">
+                                <rect key="frame" x="132" y="293" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5lv-Fu-ypX" secondAttribute="height" multiplier="1:1" id="Bgf-lh-HNz"/>
+                                    <constraint firstAttribute="height" constant="150" id="R7o-tc-LY2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -195,6 +195,7 @@
                         <viewLayoutGuide key="safeArea" id="AnK-d8-SxA"/>
                     </view>
                     <connections>
+                        <outlet property="bottomLeftImage" destination="Ch7-jW-FJT" id="HGj-60-sxC"/>
                         <outlet property="currentTemperatureLabel" destination="5vg-rQ-rRW" id="UMe-bN-rAE"/>
                         <outlet property="dateLabel" destination="rin-MY-6Gh" id="ZZP-K2-COe"/>
                         <outlet property="infoButton" destination="88d-t1-sZM" id="CRF-nM-Q0c"/>
@@ -213,7 +214,19 @@
                     <view key="view" contentMode="scaleToFill" id="qlf-jn-iYu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xdt-pu-Tvf">
+                                <rect key="frame" x="20" y="84" width="374" height="632"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xdt-pu-Tvf" firstAttribute="top" secondItem="dxt-r6-bvF" secondAttribute="top" constant="20" id="IVx-7V-sVW"/>
+                            <constraint firstItem="Xdt-pu-Tvf" firstAttribute="leading" secondItem="dxt-r6-bvF" secondAttribute="leading" constant="20" id="RNV-wM-J0G"/>
+                            <constraint firstItem="dxt-r6-bvF" firstAttribute="bottom" secondItem="Xdt-pu-Tvf" secondAttribute="bottom" constant="20" id="XMK-h1-89w"/>
+                            <constraint firstItem="dxt-r6-bvF" firstAttribute="trailing" secondItem="Xdt-pu-Tvf" secondAttribute="trailing" constant="20" id="tH4-ng-8df"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dxt-r6-bvF"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZkZ-ma-0JV">
@@ -228,10 +241,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="citiesTableView" destination="Xdt-pu-Tvf" id="0Be-Os-6PD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0G-5L-Gqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="-73"/>
+            <point key="canvasLocation" x="1595.6521739130435" y="-73.369565217391312"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jFi-Mz-3jJ">

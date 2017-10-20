@@ -17,7 +17,8 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mainImageView: SKYIconView!
-  
+    @IBOutlet weak var bottomLeftImage: SKYIconView!
+    
     let transition = CircularTransition()
   
   let locationManager = CLLocationManager()
@@ -75,7 +76,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
   func didRecieve(_ results: [String : Any])
   {
     let currentWeather = Weather(weatherDictionary: results)
-    let hourlyWeather = Weather(weatherDictionary: results)
+    //let hourlyWeather = Weather(weatherDictionary: results)
     let dispatchQueue = DispatchQueue.main
     dispatchQueue.async {
 
@@ -86,6 +87,13 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 
 
   }
+    
+    func didRecieveForecast(_ results: [String : Any])
+    {
+        let forcastWeather = Weather(weatherdictionary: results)
+        
+        self.bottomLeftImage.setType = Skycons(rawValue: )
+    }
 
   
   func loadCurrentLocation()
@@ -120,7 +128,8 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     if let location = locations.last
     {
     //  apiController.searchDarkSky(for: location.coordinate)
-      apiController.searchDarkSky(coordinate: location.coordinate)
+        apiController.searchDarkSky(coordinate: location.coordinate)
+        apiController.forecastRequest(coordinate: location.coordinate)
     }
   }
   

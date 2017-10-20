@@ -23,6 +23,7 @@
 		90DD358D1F990C74007F621E /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DD358C1F990C74007F621E /* CitiesViewController.swift */; };
 		90EA985E1F990E710014A471 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA985D1F990E710014A471 /* InformationViewController.swift */; };
 		90EA98601F9924270014A471 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA985F1F9924270014A471 /* CircularTransition.swift */; };
+		90EA98621F9A50170014A471 /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA98611F9A50170014A471 /* ForecastWeather.swift */; };
 		AB1FB849EB5D40CA437DA3AA /* Pods_WeatherAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED6F81C4E74D404E47BFD81 /* Pods_WeatherAlert.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		90DD358C1F990C74007F621E /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
 		90EA985D1F990E710014A471 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		90EA985F1F9924270014A471 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
+		90EA98611F9A50170014A471 /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
 		AA2812EA99ECBCE03F487CAD /* Pods-WeatherAlert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAlert.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAlert/Pods-WeatherAlert.release.xcconfig"; sourceTree = "<group>"; };
 		ADC402E710D258DC71AC16A8 /* Pods_WeatherAlertUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAlertUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F219E9D5C0CA7E27A1F4881C /* Pods_WeatherAlertTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherAlertTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +199,7 @@
 				90EA985F1F9924270014A471 /* CircularTransition.swift */,
 				9064423B1F96871800D80095 /* SkyIconView.swift */,
 				90AD018C1F94EA2600BCB969 /* Weather.swift */,
+				90EA98611F9A50170014A471 /* ForecastWeather.swift */,
 				90AD01831F93DC8200BCB969 /* Constants.swift */,
 			);
 			path = SwiftFiles;
@@ -488,6 +491,7 @@
 				90AD018B1F94E98700BCB969 /* MainVC.swift in Sources */,
 				90AD01561F93DC6500BCB969 /* AppDelegate.swift in Sources */,
 				90EA98601F9924270014A471 /* CircularTransition.swift in Sources */,
+				90EA98621F9A50170014A471 /* ForecastWeather.swift in Sources */,
 				90AD01841F93DC8200BCB969 /* Constants.swift in Sources */,
 				90DD358D1F990C74007F621E /* CitiesViewController.swift in Sources */,
 				90AD018D1F94EA2600BCB969 /* Weather.swift in Sources */,
