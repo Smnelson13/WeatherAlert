@@ -9,15 +9,17 @@
 import UIKit
 import GooglePlaces
 
-class CitiesViewController: UIViewController
+class CitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
+    let citiesArray = ["Charlotte", "Tokyo", "Sydney"]
     @IBOutlet weak var citiesTableView: UITableView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         view.backgroundColor = UIColor.orange
-        citiesTableView.layer.cornerRadius = 1
+        citiesTableView.layer.cornerRadius = 20
+        citiesTableView.separatorColor = UIColor.black
 
         
     }
@@ -28,14 +30,14 @@ class CitiesViewController: UIViewController
     
     }
     
-  @IBAction func searchButtonTapped(_ sender: Any)
-  {
+    @IBAction func searchButtonTapped(_ sender: Any)
+      {
     //https://developers.google.com/places/ios-api/autocomplete
     //UINavigationBar.appearance().setTextColor(UIColor.black)
     let autocompleteController = GMSAutocompleteViewController()
     autocompleteController.delegate = self
-    UINavigationBar.appearance().barTintColor = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
-    UINavigationBar.appearance().tintColor = UIColor.white
+    //UINavigationBar.appearance().barTintColor = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
+    //UINavigationBar.appearance().tintColor = UIColor.white
     //UISearchBar.appearance().backgroundColor = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
     //UISearchBar.appearance().setPlaceholderTextColor(.white)
     //UISearchBar.appearance().setSearchImageColor(.white)
@@ -45,13 +47,32 @@ class CitiesViewController: UIViewController
     let filter = GMSAutocompleteFilter()
     filter.type = GMSPlacesAutocompleteTypeFilter.city
     
-  }
+    }
   
-  @IBAction func doneButtonTapped(_ sender: Any)
-  {
+    @IBAction func doneButtonTapped(_ sender: Any)
+    {
     self.dismiss(animated: true, completion: nil)
-  }
-  
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return citiesArray.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "CityCell")
+        cell.textLabel?.text = citiesArray[indexPath.row]
+        
+        return cell
+    }
+    
+    
     
 }
 
@@ -66,6 +87,10 @@ extension CitiesViewController: GMSAutocompleteViewControllerDelegate
   // Handle the user's selection.
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace)
   {
+    let cityName = place.name
+    
+    
+    
     print("Place name: \(place.name)")
     print("Place address: \(place.formattedAddress)")
     print("Place attributions: \(place.attributions)")
