@@ -65,6 +65,11 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     apiController = APIController(delegate: self)
     
     
+    // Change this to properly handle a view appearing rather than fire off un needed functions
+    func viewDidAppear()
+    {
+      apiController = APIController(delegate: self)
+    }
     
     
     
@@ -92,7 +97,13 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     let dispatchQueue = DispatchQueue.main
     dispatchQueue.async {
 
-      self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
+    self.currentTemperatureLabel.text = "\(currentWeather.temperature.rounded())℉"
+  
+    
+      
+      
+      
+      
       //self.mainImageView.setType = Skycons(rawValue: currentWeather.icon)!
       self.mainImageView.setType = Skycons(rawValue: currentWeather.icon)!
     }
