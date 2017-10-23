@@ -11,7 +11,8 @@ import GooglePlaces
 
 class CitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
-    let citiesArray = ["Charlotte", "Tokyo", "Sydney"]
+    var places = [GMSPlace]()
+  
     @IBOutlet weak var citiesTableView: UITableView!
     
     override func viewDidLoad()
@@ -31,7 +32,7 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func searchButtonTapped(_ sender: Any)
-      {
+    {
     //https://developers.google.com/places/ios-api/autocomplete
     //UINavigationBar.appearance().setTextColor(UIColor.black)
     let autocompleteController = GMSAutocompleteViewController()
@@ -61,17 +62,18 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return citiesArray.count
+        return places.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "CityCell")
-        cell.textLabel?.text = citiesArray[indexPath.row]
-        
-        return cell
+      let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "CityCell")
+      cell.textLabel?.text = places[indexPath.row].name
+      
+      return cell
     }
     
+
     
     
 }
@@ -87,9 +89,11 @@ extension CitiesViewController: GMSAutocompleteViewControllerDelegate
   // Handle the user's selection.
   func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace)
   {
-    let cityName = place.name
     
-    
+    dismiss(animated: true) {
+      self.places.append(place)
+      self.citiesTableView.reloadData()
+    }
     
     print("Place name: \(place.name)")
     print("Place address: \(place.formattedAddress)")
