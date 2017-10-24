@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import UIKit
 
 
 let GoogleAPIKey = "AIzaSyDRALGZrDIC_hArm7WxZ9cgMbqsU2GRuZk"
 let darkSkyAPIKey = "eca40d61a5a211f8c986ea02979d3631"
- 
+let customGrey = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
