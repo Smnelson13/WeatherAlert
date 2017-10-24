@@ -125,7 +125,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tED-I2-HLz" customClass="SKYIconView" customModule="WeatherAlert" customModuleProvider="target">
-                                <rect key="frame" x="74" y="198" width="75" height="75"/>
+                                <rect key="frame" x="74.333333333333329" y="198" width="74.999999999999986" height="75"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="c4K-a3-Fr2"/>

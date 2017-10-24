@@ -9,6 +9,11 @@
 import UIKit
 import GooglePlaces
 
+protocol SelectedCityDelegate
+{
+  func didSelectCityCell(place: GMSPlace, coordinate: CLLocationCoordinate2D)
+}
+
 
 class CitiesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
@@ -76,7 +81,9 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
     return cell
   }
   
-
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+  }
   
   
 }
