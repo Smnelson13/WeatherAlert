@@ -223,13 +223,40 @@
                                 <rect key="frame" x="20" y="84" width="374" height="632"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" id="zyY-g8-PkJ">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" rowHeight="101" id="zyY-g8-PkJ" customClass="CityCell" customModule="WeatherAlert" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zyY-g8-PkJ" id="nMt-Md-uTe">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7h-Hm-jeH">
+                                                    <rect key="frame" x="5" y="76.666666666666671" width="42.333333333333336" height="23"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7e-kz-8xs">
+                                                    <rect key="frame" x="5" y="6" width="53" height="23"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="t7h-Hm-jeH" firstAttribute="leading" secondItem="nMt-Md-uTe" secondAttribute="leading" constant="5" id="AR9-NB-gKc"/>
+                                                <constraint firstItem="t7h-Hm-jeH" firstAttribute="top" secondItem="S7e-kz-8xs" secondAttribute="bottom" constant="47.670000000000002" id="FnX-9B-N0R"/>
+                                                <constraint firstItem="S7e-kz-8xs" firstAttribute="leading" secondItem="nMt-Md-uTe" secondAttribute="leading" constant="5" id="Nda-Rs-6WH"/>
+                                                <constraint firstItem="S7e-kz-8xs" firstAttribute="top" secondItem="nMt-Md-uTe" secondAttribute="top" constant="6" id="RBa-8m-3Qg"/>
+                                                <constraint firstAttribute="trailing" secondItem="t7h-Hm-jeH" secondAttribute="trailing" constant="326.67000000000002" id="bLg-06-mZ9"/>
+                                                <constraint firstAttribute="bottom" secondItem="t7h-Hm-jeH" secondAttribute="bottom" constant="1" id="o3Y-Kw-qRc"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="S7e-kz-8xs" secondAttribute="trailing" constant="316" id="rTx-t7-rTP"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cityDescriptionLabel" destination="t7h-Hm-jeH" id="6ok-FA-x0o"/>
+                                            <outlet property="cityNameLabel" destination="S7e-kz-8xs" id="0IG-h0-z6j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

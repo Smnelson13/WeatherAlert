@@ -66,17 +66,15 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     
     
     // Change this to properly handle a view appearing rather than fire off un needed functions
-    func viewDidAppear()
-    {
-      apiController = APIController(delegate: self)
-    }
-    
-    
-    
-    
     loadCurrentLocation()
     
   }
+  
+  func viewDidAppear()
+  {
+    apiController = APIController(delegate: self)
+  }
+  
     
     override func viewDidAppear(_ animated: Bool)
     {

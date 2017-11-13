@@ -11,6 +11,7 @@
 		5A0BC2CE3F7CC3089D399B8B /* Pods_WeatherAlertUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC402E710D258DC71AC16A8 /* Pods_WeatherAlertUITests.framework */; };
 		9064423C1F96871800D80095 /* SkyIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064423B1F96871800D80095 /* SkyIconView.swift */; };
 		9095007E1F9D410E00B410E0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095007D1F9D410E00B410E0 /* City.swift */; };
+		909D5B391FA4D9F5000A4A9D /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909D5B381FA4D9F5000A4A9D /* CityCell.swift */; };
 		90AD01561F93DC6500BCB969 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AD01551F93DC6500BCB969 /* AppDelegate.swift */; };
 		90AD015B1F93DC6500BCB969 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90AD01591F93DC6500BCB969 /* Main.storyboard */; };
 		90AD015D1F93DC6500BCB969 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90AD015C1F93DC6500BCB969 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		7F09614A84EC7720AEFECC31 /* Pods-WeatherAlertUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherAlertUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherAlertUITests/Pods-WeatherAlertUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9064423B1F96871800D80095 /* SkyIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyIconView.swift; sourceTree = "<group>"; };
 		9095007D1F9D410E00B410E0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		909D5B381FA4D9F5000A4A9D /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		90AD01521F93DC6500BCB969 /* WeatherAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90AD01551F93DC6500BCB969 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90AD015A1F93DC6500BCB969 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +132,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		909D5B3A1FA4DA0D000A4A9D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9064423B1F96871800D80095 /* SkyIconView.swift */,
+				90EA985F1F9924270014A471 /* CircularTransition.swift */,
+				90AD01831F93DC8200BCB969 /* Constants.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		90AD01491F93DC6500BCB969 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 				90AD01591F93DC6500BCB969 /* Main.storyboard */,
 				90AD01551F93DC6500BCB969 /* AppDelegate.swift */,
 				90AD01851F93DE2500BCB969 /* APIController.swift */,
+				909D5B3A1FA4DA0D000A4A9D /* SupportingFiles */,
 				90AD018E1F94EA3E00BCB969 /* SwiftFiles */,
 				90AD01891F93DF2C00BCB969 /* ViewControllers */,
 				90AD015C1F93DC6500BCB969 /* Assets.xcassets */,
@@ -198,12 +211,10 @@
 		90AD018E1F94EA3E00BCB969 /* SwiftFiles */ = {
 			isa = PBXGroup;
 			children = (
-				90EA985F1F9924270014A471 /* CircularTransition.swift */,
-				9064423B1F96871800D80095 /* SkyIconView.swift */,
 				90AD018C1F94EA2600BCB969 /* Weather.swift */,
 				9095007D1F9D410E00B410E0 /* City.swift */,
 				90EA98611F9A50170014A471 /* ForecastWeather.swift */,
-				90AD01831F93DC8200BCB969 /* Constants.swift */,
+				909D5B381FA4D9F5000A4A9D /* CityCell.swift */,
 			);
 			path = SwiftFiles;
 			sourceTree = "<group>";
@@ -491,6 +502,7 @@
 			files = (
 				90AD01861F93DE2500BCB969 /* APIController.swift in Sources */,
 				9064423C1F96871800D80095 /* SkyIconView.swift in Sources */,
+				909D5B391FA4D9F5000A4A9D /* CityCell.swift in Sources */,
 				90AD018B1F94E98700BCB969 /* MainVC.swift in Sources */,
 				90AD01561F93DC6500BCB969 /* AppDelegate.swift in Sources */,
 				90EA98601F9924270014A471 /* CircularTransition.swift in Sources */,

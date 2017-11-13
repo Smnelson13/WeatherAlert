@@ -11,8 +11,6 @@ import Foundation
 
 class Weather
 {
-  
-  
   let temperature: Double
   let humidity: Double
   let apparentTemperature: Double

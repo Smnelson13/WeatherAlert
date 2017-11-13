@@ -11,6 +11,7 @@
 		4705FA9C29ED28FD4FD38AE2A062E840 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		64AF92BDCB27C81D9FB1D2AC735E22DA /* Pods-WeatherAlertUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 09DD55326E32852CE135B61EA24BB3B8 /* Pods-WeatherAlertUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9095007C1F9D39F500B410E0 /* needtvccodeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9095007B1F9D39F500B410E0 /* needtvccodeTableViewController.swift */; };
+		909D5B371FA4D9EA000A4A9D /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909D5B361FA4D9EA000A4A9D /* CityCell.swift */; };
 		B0FF1B76BBDC9F36A86E77120FB352AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		BC58AB7CAEB78D33064CAE3ACE579249 /* Pods-WeatherAlertTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A8CC913FF9631C2D6DD950E17F1272C /* Pods-WeatherAlertTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C864B6423CC8D8B5BC30B6F08B308320 /* Pods-WeatherAlertTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD581682E83D7A747CDCC6C2F2358026 /* Pods-WeatherAlertTests-dummy.m */; };
@@ -42,6 +43,7 @@
 		830F7CBDD1E72A06F9568DD8335D45EA /* Pods-WeatherAlert-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WeatherAlert-resources.sh"; sourceTree = "<group>"; };
 		8EEF2FB655332401696BAE2AD4EB3209 /* Pods-WeatherAlertUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeatherAlertUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9095007B1F9D39F500B410E0 /* needtvccodeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = needtvccodeTableViewController.swift; sourceTree = "<group>"; };
+		909D5B361FA4D9EA000A4A9D /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityCell.swift; path = ../WeatherAlert/SwiftFiles/CityCell.swift; sourceTree = "<group>"; };
 		91473814AD7B2814BEF88A41D26DD16E /* Pods-WeatherAlertTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-WeatherAlertTests.modulemap"; sourceTree = "<group>"; };
 		9252BE664B8E3EFF5AF850DCBD2A3F13 /* Pods-WeatherAlertTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeatherAlertTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -136,6 +138,7 @@
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
+				909D5B361FA4D9EA000A4A9D /* CityCell.swift */,
 				9095007B1F9D39F500B410E0 /* needtvccodeTableViewController.swift */,
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
@@ -378,6 +381,7 @@
 			files = (
 				9095007C1F9D39F500B410E0 /* needtvccodeTableViewController.swift in Sources */,
 				C8F2416C37246499995738501DA1C569 /* Pods-WeatherAlert-dummy.m in Sources */,
+				909D5B371FA4D9EA000A4A9D /* CityCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

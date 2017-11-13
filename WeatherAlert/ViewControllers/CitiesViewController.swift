@@ -75,8 +75,13 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
-    let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "CityCell")
-    cell.textLabel?.text = places[indexPath.row].name
+     let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityCell
+    
+    cell.cityNameLabel.text = places[indexPath.row].name
+    cell.cityDescriptionLabel.text = "\(places[indexPath.row].coordinate)"
+    //cell.textLabel?.text = "\(places[indexPath.row].coordinate)"
+    
+    
     
     return cell
   }
