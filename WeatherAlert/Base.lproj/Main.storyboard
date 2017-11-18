@@ -40,15 +40,37 @@
                                     <action selector="doneButtonTapped:" destination="tod-sG-re7" eventType="touchUpInside" id="thG-aw-GFe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Information. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKg-H6-Lcd">
+                                <rect key="frame" x="93.666666666666671" y="84" width="226.66666666666663" height="37"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="32"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INw-NV-Atq">
+                                <rect key="frame" x="112.66666666666669" y="349.33333333333331" width="189" height="39"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                <state key="normal" title="Developer Websight">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="developerWebsiteButton:" destination="tod-sG-re7" eventType="touchUpInside" id="wrz-ZI-JJq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="cKg-H6-Lcd" firstAttribute="top" secondItem="9ov-kf-ahh" secondAttribute="top" constant="64" id="6uU-E1-GKK"/>
+                            <constraint firstItem="INw-NV-Atq" firstAttribute="centerY" secondItem="Dfi-gD-out" secondAttribute="centerY" id="K3H-X5-H1k"/>
                             <constraint firstItem="UH6-cJ-l1e" firstAttribute="leading" secondItem="9ov-kf-ahh" secondAttribute="leading" constant="28" id="T6E-PW-R3Z"/>
+                            <constraint firstItem="cKg-H6-Lcd" firstAttribute="centerX" secondItem="Dfi-gD-out" secondAttribute="centerX" id="XdU-RY-3xZ"/>
+                            <constraint firstItem="INw-NV-Atq" firstAttribute="centerX" secondItem="Dfi-gD-out" secondAttribute="centerX" id="nRD-Lt-PU9"/>
                             <constraint firstItem="9ov-kf-ahh" firstAttribute="bottom" secondItem="UH6-cJ-l1e" secondAttribute="bottom" constant="20" id="wyv-Tf-5qK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ov-kf-ahh"/>
                     </view>
                     <connections>
+                        <outlet property="developerWebsightButton" destination="INw-NV-Atq" id="GWj-KA-8sF"/>
                         <outlet property="doneButton" destination="UH6-cJ-l1e" id="ZL6-QT-OVV"/>
                     </connections>
                 </viewController>

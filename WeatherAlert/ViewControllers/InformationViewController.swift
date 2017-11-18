@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SafariServices
 
-class InformationViewController: UIViewController
+class InformationViewController: UIViewController, SFSafariViewControllerDelegate
 {
-    @IBOutlet weak var doneButton: UIButton!
+  @IBOutlet weak var developerWebsightButton: UIButton!
+  @IBOutlet weak var doneButton: UIButton!
     @IBAction func doneButtonTapped(_ sender: Any)
     {
         self.dismiss(animated: true, completion: nil)
@@ -20,6 +22,7 @@ class InformationViewController: UIViewController
     {
         super.viewDidLoad()
         doneButton.layer.cornerRadius = 10
+        developerWebsightButton.layer.cornerRadius = 10
         
 
         // Do any additional setup after loading the view.
@@ -31,10 +34,18 @@ class InformationViewController: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
-   
+  @IBAction func developerWebsiteButton(_ sender: Any)
+  {
+    let url = URL(string: "https://smnelson13.github.io")
+    
+    let svc = SFSafariViewController(url: url!)
+      svc .delegate = self as! SFSafariViewControllerDelegate
+      self.present(svc, animated: true, completion: nil)
+    
+  }
+  
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
