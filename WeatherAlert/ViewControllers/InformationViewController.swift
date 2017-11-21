@@ -21,9 +21,15 @@ class InformationViewController: UIViewController, SFSafariViewControllerDelegat
     override func viewDidLoad()
     {
       super.viewDidLoad()
+      developerWebsightButton.titleEdgeInsets.top = 0
+      developerWebsightButton.titleEdgeInsets.left = 2
+      developerWebsightButton.titleEdgeInsets.right = 2
+      developerWebsightButton.titleEdgeInsets.bottom = 0
+      developerWebsightButton.layer.borderWidth = 1.5
+      developerWebsightButton.layer.cornerRadius = 5
+      developerWebsightButton.layer.borderColor = UIColor.white.cgColor
       doneButton.layer.borderColor = UIColor.white.cgColor
-      doneButton.layer.borderWidth = 2.0
-      doneButton.layer.cornerRadius = 5
+      doneButton.layer.cornerRadius = 10
       developerWebsightButton.layer.cornerRadius = 10
       GradientApplier.apply(to: self.view)
         

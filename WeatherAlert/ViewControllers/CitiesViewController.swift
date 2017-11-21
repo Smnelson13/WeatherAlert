@@ -25,68 +25,60 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
   
   override func viewDidLoad()
   {
-      super.viewDidLoad()
-      view.backgroundColor = customGrey
-      citiesTableView.layer.cornerRadius = 20
-      citiesTableView.separatorColor = UIColor.black
+    super.viewDidLoad()
+    GradientApplier.apply(to: self.view)
+    citiesTableView.backgroundColor = UIColor.clear
+    citiesTableView.layer.cornerRadius = 20
+    citiesTableView.separatorColor = UIColor.black
 
     
   }
 
   override func didReceiveMemoryWarning()
   {
-      super.didReceiveMemoryWarning()
-  
+    super.didReceiveMemoryWarning()
   }
   
   @IBAction func searchButtonTapped(_ sender: Any)
   {
-  //https://developers.google.com/places/ios-api/autocomplete
-  //UINavigationBar.appearance().setTextColor(UIColor.black)
-  let autocompleteController = GMSAutocompleteViewController()
-  autocompleteController.delegate = self
-  //UINavigationBar.appearance().barTintColor = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
-  //UINavigationBar.appearance().tintColor = UIColor.white
-  //UISearchBar.appearance().backgroundColor = UIColor(red: 44.0/255, green: 44.0/255, blue: 49.0/255, alpha: 1.0)
-  //UISearchBar.appearance().setPlaceholderTextColor(.white)
-  //UISearchBar.appearance().setSearchImageColor(.white)
-  //UISearchBar.appearance().setTextColor(UIColor.white)
-  UISearchBar.appearance().barStyle = UIBarStyle.default
-  present(autocompleteController, animated: true, completion: nil)
-  let filter = GMSAutocompleteFilter()
-  filter.type = GMSPlacesAutocompleteTypeFilter.city
+    //https://developers.google.com/places/ios-api/autocomplete
+    let autocompleteController = GMSAutocompleteViewController()
+    autocompleteController.delegate = self
+    UISearchBar.appearance().barStyle = UIBarStyle.default
+    present(autocompleteController, animated: true, completion: nil)
+    let filter = GMSAutocompleteFilter()
+    filter.type = GMSPlacesAutocompleteTypeFilter.city
   
   }
 
   @IBAction func doneButtonTapped(_ sender: Any)
   {
-  self.dismiss(animated: true, completion: nil)
+    self.dismiss(animated: true, completion: nil)
   }
   
   func numberOfSections(in tableView: UITableView) -> Int
   {
-      return 1
+    return 1
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-      return places.count
+    return places.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityCell
     
     cell.cityNameLabel.text = places[indexPath.row].name
     cell.cityDescriptionLabel.text = "\(places[indexPath.row].coordinate)"
-    //cell.textLabel?.text = "\(places[indexPath.row].coordinate)"
-    
-    
+    cell.backgroundColor = UIColor.clear
     
     return cell
   }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+  {
     
   }
   

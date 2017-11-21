@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INw-NV-Atq">
-                                <rect key="frame" x="112.66666666666669" y="349.33333333333331" width="189" height="39"/>
+                                <rect key="frame" x="100" y="171" width="215" height="39"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
                                 <state key="normal" title="Developer Websight">
@@ -61,10 +61,12 @@
                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cKg-H6-Lcd" firstAttribute="top" secondItem="9ov-kf-ahh" secondAttribute="top" constant="64" id="6uU-E1-GKK"/>
-                            <constraint firstItem="INw-NV-Atq" firstAttribute="centerY" secondItem="Dfi-gD-out" secondAttribute="centerY" id="K3H-X5-H1k"/>
+                            <constraint firstItem="9ov-kf-ahh" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="INw-NV-Atq" secondAttribute="trailing" constant="100" id="7oL-T8-qBc"/>
+                            <constraint firstItem="INw-NV-Atq" firstAttribute="top" secondItem="cKg-H6-Lcd" secondAttribute="bottom" constant="50" id="D7s-6g-mM4"/>
+                            <constraint firstItem="INw-NV-Atq" firstAttribute="centerX" secondItem="Dfi-gD-out" secondAttribute="centerX" id="Eo0-ar-7J3"/>
+                            <constraint firstItem="INw-NV-Atq" firstAttribute="leading" relation="lessThanOrEqual" secondItem="9ov-kf-ahh" secondAttribute="leading" constant="100" id="GIR-lX-iod"/>
                             <constraint firstItem="UH6-cJ-l1e" firstAttribute="leading" secondItem="9ov-kf-ahh" secondAttribute="leading" constant="28" id="T6E-PW-R3Z"/>
                             <constraint firstItem="cKg-H6-Lcd" firstAttribute="centerX" secondItem="Dfi-gD-out" secondAttribute="centerX" id="XdU-RY-3xZ"/>
-                            <constraint firstItem="INw-NV-Atq" firstAttribute="centerX" secondItem="Dfi-gD-out" secondAttribute="centerX" id="nRD-Lt-PU9"/>
                             <constraint firstItem="9ov-kf-ahh" firstAttribute="bottom" secondItem="UH6-cJ-l1e" secondAttribute="bottom" constant="20" id="wyv-Tf-5qK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ov-kf-ahh"/>
@@ -93,8 +95,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue, Oct 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rin-MY-6Gh">
-                                <rect key="frame" x="147" y="40" width="120" height="17.666666666666671"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue, Nov 21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rin-MY-6Gh">
+                                <rect key="frame" x="147" y="40" width="120" height="18"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -252,13 +254,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7h-Hm-jeH">
                                                     <rect key="frame" x="5" y="39" width="42.333333333333336" height="23"/>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7e-kz-8xs">
                                                     <rect key="frame" x="5" y="6" width="53" height="23"/>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -272,6 +274,7 @@
                                                 <constraint firstItem="t7h-Hm-jeH" firstAttribute="leading" secondItem="nMt-Md-uTe" secondAttribute="leading" constant="5" id="vkl-Cu-NfB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cityDescriptionLabel" destination="t7h-Hm-jeH" id="6ok-FA-x0o"/>
                                             <outlet property="cityNameLabel" destination="S7e-kz-8xs" id="0IG-h0-z6j"/>

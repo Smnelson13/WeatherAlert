@@ -29,12 +29,12 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (segue.identifier == "infoVC")
-        {
-            let infoVC = segue.destination as! InformationViewController
-            infoVC.transitioningDelegate = self
-            infoVC.modalPresentationStyle = .custom
-        }
+      if (segue.identifier == "infoVC")
+      {
+        let infoVC = segue.destination as! InformationViewController
+        infoVC.transitioningDelegate = self
+        infoVC.modalPresentationStyle = .custom
+      }
        
     }
     
@@ -60,11 +60,8 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     let images: [SKYIconView] = [mainImageView, bottomRightImage, bottomLeftImage, topRightImage, topLeftImage, middleImage]
     for image in images { image.setColor = .white }
     GradientApplier.apply(to: self.view)
-    testGradient()
     infoButton.layer.cornerRadius = 15
     apiController = APIController(delegate: self)
-    
-  
     
     // Change this to properly handle a view appearing rather than fire off un needed functions
     loadCurrentLocation()
@@ -77,15 +74,14 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
   }
   
     
-    override func viewDidAppear(_ animated: Bool)
-    {
-        // refresh weather data
-    }
+  override func viewDidAppear(_ animated: Bool)
+  {
+      // refresh weather data
+  }
 
   override func didReceiveMemoryWarning()
   {
-      super.didReceiveMemoryWarning()
-    
+    super.didReceiveMemoryWarning()
   }
 
   // the way to process single calls.
@@ -106,17 +102,16 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     
     func didRecieveForecast(_ results: [String : Any])
     {
-        let dispatchQueue = DispatchQueue.main
-        dispatchQueue.async {
+      let dispatchQueue = DispatchQueue.main
+      dispatchQueue.async {
+          let forcastWeather = ForecastWeather(forecastDictionary: results)
+          self.bottomLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
+          self.topLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
+          self.middleImage.setType = Skycons(rawValue: forcastWeather.icon)!
+          self.topRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
+          self.bottomRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
 
-            let forcastWeather = ForecastWeather(forecastDictionary: results)
-            self.bottomLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
-            self.topLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
-            self.middleImage.setType = Skycons(rawValue: forcastWeather.icon)!
-            self.topRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
-            self.bottomRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
-
-        }
+      }
         
     }
 
@@ -158,16 +153,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     }
   }
 
-  func testGradient()
-  {
-    let gradientLayer = CAGradientLayer()
-    gradientLayer.frame = self.view.frame
-    gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow.cgColor]
-    gradientLayer.locations = [0.0, 0.05, 1.0]
-    gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-    self.view.layer.insertSublayer(gradientLayer, at: 0)
-  }
-  
+ 
 }
 
 
