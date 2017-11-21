@@ -24,7 +24,6 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     @IBOutlet weak var bottomRightImage: SKYIconView!
     
     let transition = CircularTransition()
-  
     let locationManager = CLLocationManager()
     var apiController: APIController!
 
@@ -60,9 +59,11 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     super.viewDidLoad()
     let images: [SKYIconView] = [mainImageView, bottomRightImage, bottomLeftImage, topRightImage, topLeftImage, middleImage]
     for image in images { image.setColor = .white }
-    gradient()
+    GradientApplier.apply(to: self.view)
+    testGradient()
     infoButton.layer.cornerRadius = 15
     apiController = APIController(delegate: self)
+    
   
     
     // Change this to properly handle a view appearing rather than fire off un needed functions
@@ -157,17 +158,15 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     }
   }
 
-  func gradient()
+  func testGradient()
   {
     let gradientLayer = CAGradientLayer()
     gradientLayer.frame = self.view.frame
     gradientLayer.colors = [UIColor.red.cgColor, UIColor.orange.cgColor, UIColor.yellow.cgColor]
     gradientLayer.locations = [0.0, 0.05, 1.0]
-    gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+    gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
     self.view.layer.insertSublayer(gradientLayer, at: 0)
   }
-  
-  
   
 }
 

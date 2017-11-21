@@ -20,9 +20,12 @@ class InformationViewController: UIViewController, SFSafariViewControllerDelegat
     
     override func viewDidLoad()
     {
-        super.viewDidLoad()
-        doneButton.layer.cornerRadius = 10
-        developerWebsightButton.layer.cornerRadius = 10
+      super.viewDidLoad()
+      doneButton.layer.borderColor = UIColor.white.cgColor
+      doneButton.layer.borderWidth = 2.0
+      doneButton.layer.cornerRadius = 5
+      developerWebsightButton.layer.cornerRadius = 10
+      GradientApplier.apply(to: self.view)
         
 
         // Do any additional setup after loading the view.
