@@ -29,7 +29,7 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
     GradientApplier.apply(to: self.view)
     citiesTableView.backgroundColor = UIColor.clear
     citiesTableView.layer.cornerRadius = 20
-    citiesTableView.separatorColor = UIColor.black
+    UITableView.appearance().separatorColor = UIColor.white
 
     
   }
@@ -72,6 +72,7 @@ class CitiesViewController: UIViewController, UITableViewDataSource, UITableView
     
     cell.cityNameLabel.text = places[indexPath.row].name
     cell.cityDescriptionLabel.text = "\(places[indexPath.row].coordinate)"
+    
     cell.backgroundColor = UIColor.clear
     
     return cell

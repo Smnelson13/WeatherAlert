@@ -156,7 +156,7 @@
                                 </constraints>
                                 <state key="normal" image="IconList"/>
                                 <connections>
-                                    <segue destination="NZS-G1-iZO" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="gsj-rX-RXw"/>
+                                    <segue destination="NZS-G1-iZO" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="gsj-rX-RXw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88d-t1-sZM">
