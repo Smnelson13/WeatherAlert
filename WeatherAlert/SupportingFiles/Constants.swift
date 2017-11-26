@@ -21,3 +21,4 @@ let viceCity1 = UIColor(red:0.20, green:0.58, blue:0.90, alpha:1.0)
 let viceCity2 = UIColor(red:0.93, green:0.43, blue:0.68, alpha:1.0)
 let sunset1 = UIColor(red:0.04, green:0.28, blue:0.42, alpha:1.0)
 let sunset2 =  UIColor(red:0.96, green:0.38, blue:0.09, alpha:1.0)
+
