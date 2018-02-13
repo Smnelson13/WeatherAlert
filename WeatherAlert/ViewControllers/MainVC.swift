@@ -12,7 +12,10 @@ import CoreLocation
 
 class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate, UIViewControllerTransitioningDelegate
 {
-    @IBOutlet weak var infoButton: UIButton!
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var forecastLabel: UILabel!
+//  @IBOutlet weak var summaryLabel: UILabel!
+  @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var currentTemperatureLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -62,9 +65,13 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     GradientApplier.apply(to: self.view)
     infoButton.layer.cornerRadius = 15
     apiController = APIController(delegate: self)
-    
-    // Change this to properly handle a view appearing rather than fire off un needed functions
     loadCurrentLocation()
+  }
+  
+  func appearanceSetup()
+  {
+    tableView.layer.borderColor = UIColor.white.cgColor
+    tableView.layer.borderWidth = 2
     
   }
   
@@ -94,7 +101,7 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 
       self.currentTemperatureLabel.text = "\(currentWeather.temperature.rounded())℉"
       self.mainImageView.setType = Skycons(rawValue: currentWeather.icon)!
-    
+    //  self.summaryLabel.text = currentWeather.summary
     }
 
 
@@ -104,12 +111,13 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
     {
       let dispatchQueue = DispatchQueue.main
       dispatchQueue.async {
-          let forcastWeather = ForecastWeather(forecastDictionary: results)
-          self.bottomLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
-          self.topLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
-          self.middleImage.setType = Skycons(rawValue: forcastWeather.icon)!
-          self.topRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
-          self.bottomRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
+        let forcastWeather = ForecastWeather(forecastDictionary: results)
+        self.bottomLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
+        self.topLeftImage.setType = Skycons(rawValue: forcastWeather.icon)!
+        self.middleImage.setType = Skycons(rawValue: forcastWeather.icon)!
+        self.topRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
+        self.bottomRightImage.setType = Skycons(rawValue: forcastWeather.icon)!
+        self.forecastLabel.text = forcastWeather.summary
 
       }
         
@@ -155,22 +163,6 @@ class MainVC: UIViewController, CLLocationManagerDelegate, APIControllerDelegate
 
  
 }
-
-
-
-
-
-
-//how to handle the multiple call function
-//  func apiController(didReceive darkSkyResults: [String : Any])
-//  {
-//    let currentWeather = Weather(weatherDictionary: darkSkyResults)
-//
-//    self.currentTemperatureLabel.text = "\(currentWeather.temperature)℉"
-//    self.dateLabel.text = "\(currentWeather.time)"
-//  }
-
-
 
 
 

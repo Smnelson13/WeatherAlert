@@ -12,11 +12,13 @@ import Foundation
 class ForecastWeather
 {
   let icon: String
+  let summary: String
 
   init(forecastDictionary: [String: Any])
     
   {
     icon = forecastDictionary["icon"] as! String
+    summary = forecastDictionary["summary"] as! String
   }
     
    

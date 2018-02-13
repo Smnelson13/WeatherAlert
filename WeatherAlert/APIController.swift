@@ -113,54 +113,16 @@ class APIController
   }
   
   
+  func jsonDecoder()
+  {
+    let weather = try decoder.decode(Weather.self, from: responseData)
+  }
+  
+  
+  
+  
+  
+  
+  
   
 }
-
-
-// commented out code is the method for combining calls into one function
-//  func searchDarkSky(for coordinate: CLLocationCoordinate2D)
-//  {
-//    let url = "https://api.darksky.net/forecast/\(darkSkyAPIKey)/\(coordinate.latitude),\(coordinate.longitude)"
-//    request(url) { json, error in
-//      if let json = json,
-//        let currently = json["currently"] as? [String: Any],
-//        let hourly = json["hourly"] as? [String: Any]
-//      {
-//        self.delegate?.apiController(didReceive: json)
-//      } else if let error = error
-//      {
-//        // handle error
-//      }
-//    }
-//  }
-//
-//  func request(_ url: String, _ completion: @escaping ([String: Any]?, Error?) -> Void)
-//  {
-//    guard let url = URL(string: url) else { return }
-//    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//    URLSession.shared.dataTask(with: url) { data, response, error in
-//      UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//      if let data = data, let json = self.parseJSON(data)
-//      {
-//        completion(json, nil)
-//      } else if let error = error
-//      {
-//        completion(nil, error)
-//      }
-//    }
-//  }
-//
-//  func parseJSON(_ data: Data) -> [String: Any]?
-//  {
-//    do
-//    {
-//      return try JSONSerialization
-//        .jsonObject(with: data, options: []) as? [String: Any]
-//    }
-//    catch
-//    {
-//      print(error)
-//      return nil
-//    }
-//  }
-//
